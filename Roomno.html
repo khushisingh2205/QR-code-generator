@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h1>Select your room and enter your password:</h1>
+    <div class="roomno">
+        <form id="roomForm" action="#" method="post">
+            <label for="room">Select Room:</label>
+            <select id="room" name="room">
+                <option value="Room 1">Room 1</option>
+                <option value="Room 2">Room 2</option>
+                <option value="Room 3">Room 3</option>
+                <option value="Room 4">Room 4</option>
+            </select><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <br> <br>
+            <button type="button" id="submitBtn">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Define the correct room and password
+        const correctCredentials = {
+            "Room 1": "password1",
+            "Room 2": "password2",
+
+            "Room 3": "password3",
+            "Room 4": "password4",
+            // Add more credentials as needed
+        };
+
+        // Get form elements and submit button
+        const roomSelect = document.getElementById("room");
+        const passwordInput = document.getElementById("password");
+        const submitButton = document.getElementById("submitBtn");
+
+        // Add an event listener to the button for validation and redirection
+        submitButton.addEventListener("click", function () {
+            // Get user input
+            const selectedRoom = roomSelect.value;
+            const enteredPassword = passwordInput.value;
+
+            // Check if the entered credentials match the correct values
+            if (correctCredentials.hasOwnProperty(selectedRoom) && correctCredentials[selectedRoom] === enteredPassword) {
+                // If the credentials match, redirect to the registration page
+                window.location.href = "Registeration.html";
+               
+                
+            } else {
+                // If the credentials do not match, show an alert
+                alert("Invalid credentials. Please try again.");
+            }
+        });
+
+        
+    </script>
+</body>
+</html>
